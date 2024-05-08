@@ -20,9 +20,9 @@ func NewLogger(prefix string) *Logger {
 
 	return &Logger{
 		debug:   log.New(writer, "DEBUG: ", logger.Flags()),
-		info:    log.New(writer, "DEBUG: ", logger.Flags()),
-		warning: log.New(writer, "DEBUG: ", logger.Flags()),
-		err:     log.New(writer, "DEBUG: ", logger.Flags()),
+		info:    log.New(writer, "INFO: ", logger.Flags()),
+		warning: log.New(writer, "WARN: ", logger.Flags()),
+		err:     log.New(writer, "ERROR: ", logger.Flags()),
 		writer:  writer,
 	}
 }

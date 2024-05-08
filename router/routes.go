@@ -1,14 +1,13 @@
 package router
 
 import (
-	"github.com/Alym62/rest-go/handler"
 	"github.com/Alym62/rest-go/handler/method"
 	"github.com/gin-gonic/gin"
 )
 
 func initializeRoutes(router *gin.Engine) {
 	// TODO: Initializar request
-	handler.InitializerHandler()
+	method.InitializerHandlerLogger()
 
 	v1 := router.Group("/api/v1/ws")
 	{

@@ -1,4 +1,4 @@
-package handler
+package method
 
 import (
 	"github.com/Alym62/rest-go/config"
@@ -10,7 +10,7 @@ var (
 	db     *gorm.DB
 )
 
-func InitializerHandler() {
-	logger = config.GetLogger("request")
+func InitializerHandlerLogger() {
+	logger = config.GetLogger("method")
 	db = config.GetPostgreSQL()
 }

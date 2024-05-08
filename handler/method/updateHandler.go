@@ -1,4 +1,4 @@
-package handler
+package method
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func DeleteHandler(context *gin.Context) {
+func UpdateHandler(context *gin.Context) {
 	context.JSON(http.StatusNoContent, gin.H{
 		"message": "Primeira API com Go",
 	})

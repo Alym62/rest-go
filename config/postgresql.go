@@ -10,7 +10,7 @@ func InitializerPostgreSQL() (*gorm.DB, error) {
 	logger := GetLogger("postgre")
 
 	// TODO: Create conection DB
-	db, err := gorm.Open(postgres.Open("host=localhost user=postgres password=postgres dbname=go port=5432"), &gorm.Config{})
+	db, err := gorm.Open(postgres.Open("host=postgres user=postgres password=postgres dbname=go port=5432"), &gorm.Config{})
 	if err != nil {
 		logger.Errf("PostgreSQL error: %v", err)
 		return nil, err

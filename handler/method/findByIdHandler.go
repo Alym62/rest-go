@@ -8,6 +8,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//	@BasePath	/api/v1/ws
+
+//	@Summary		FindById product
+//	@Description	Find by id product
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	query		string	true	"Product identification "
+//	@Success		200	{object}	response.FindByIdProductResponseSwagger
+//	@Failure		400	{object}	response.ErrorResponse
+//	@Failure		404	{object}	response.ErrorResponse
+//	@Router			/find [get]
 func FindByIdHandler(context *gin.Context) {
 	id := context.Query("id")
 	if id == "" {
@@ -21,5 +33,5 @@ func FindByIdHandler(context *gin.Context) {
 		return
 	}
 
-	response.SendSuccess(context, "find-id-product", product)
+	response.SendSuccess(context, http.StatusOK, "find-id-product", product)
 }

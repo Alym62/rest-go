@@ -9,6 +9,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//	@BasePath	/api/v1/ws
+
+//	@Summary		Update product
+//	@Description	Update a product
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Param			id		query		string							true	"Product indentification"
+//	@Param			request	body		request.UpdateProductRequest	true	"Request body to update"
+//	@Success		204		{object}	response.UpdateProductResponseSwagger
+//	@Failure		400		{object}	response.ErrorResponse
+//	@Failure		404		{object}	response.ErrorResponse
+//	@Failure		500		{object}	response.ErrorResponse
+//	@Router			/update [put]
 func UpdateHandler(context *gin.Context) {
 	request := request.UpdateProductRequest{}
 
@@ -62,5 +76,5 @@ func UpdateHandler(context *gin.Context) {
 		return
 	}
 
-	response.SendSuccess(context, "update-product", product)
+	response.SendSuccess(context, http.StatusNoContent, "update-product", product)
 }

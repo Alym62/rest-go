@@ -8,6 +8,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//	@BasePath	/api/v1/ws
+
+//	@Summary		Find product
+//	@Description	Listing products
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{object}	response.FindProductResponseSwagger
+//	@Failure		500	{object}	response.ErrorResponse
+//	@Router			/ [get]
 func FindHandler(context *gin.Context) {
 	products := []schemas.Product{}
 
@@ -16,5 +26,5 @@ func FindHandler(context *gin.Context) {
 		return
 	}
 
-	response.SendSuccess(context, "list-products", products)
+	response.SendSuccess(context, http.StatusOK, "list-products", products)
 }

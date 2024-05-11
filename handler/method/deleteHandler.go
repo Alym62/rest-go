@@ -9,6 +9,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//	@BasePath	/api/v1/ws
+
+//	@Summary		Delete product
+//	@Description	Delete a   product
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	query		string	true	"Product identification "
+//	@Success		204	{object}	response.DeleteProductResponseSwagger
+//	@Failure		400	{object}	response.ErrorResponse
+//	@Failure		404	{object}	response.ErrorResponse
+//	@Failure		500	{object}	response.ErrorResponse
+//	@Router			/delete [delete]
 func DeleteHandler(context *gin.Context) {
 	id := context.Query("id")
 	if id == "" {
@@ -30,5 +43,5 @@ func DeleteHandler(context *gin.Context) {
 		return
 	}
 
-	response.SendSuccess(context, "delete-product", product)
+	response.SendSuccess(context, http.StatusNoContent, "delete-product", product)
 }

@@ -9,6 +9,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//	@BasePath	/api/v1/ws
+
+//	@Summary		Create product
+//	@Description	Create a new product
+//	@Tags			Products
+//	@Accept			json
+//	@Produce		json
+//	@Param			request	body		request.CreateProductRequest	true	"Request body"
+//	@Success		201		{object}	response.CreateProductResponseSwagger
+//	@Failure		400		{object}	response.ErrorResponse
+//	@Failure		500		{object}	response.ErrorResponse
+//	@Router			/create [post]
 func CreateHandler(context *gin.Context) {
 	request := request.CreateProductRequest{}
 
@@ -34,5 +46,5 @@ func CreateHandler(context *gin.Context) {
 		return
 	}
 
-	response.SendSuccess(context, "create-product", product)
+	response.SendSuccess(context, http.StatusCreated, "create-product", product)
 }

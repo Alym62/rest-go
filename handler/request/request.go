@@ -13,6 +13,15 @@ type CreateProductRequest struct {
 	Description string  `json:"description"`
 }
 
+// TODO: Update product
+type UpdateProductRequest struct {
+	Name        string  `json:"name"`
+	Company     string  `json:"company"`
+	Location    string  `json:"location"`
+	Price       float64 `json:"price"`
+	Description string  `json:"description"`
+}
+
 func errParamIsRequired(name, typ string) error {
 	return fmt.Errorf("param: %s (type: %s) is required", name, typ)
 }
@@ -34,4 +43,12 @@ func (req *CreateProductRequest) Validate() error {
 		return errParamIsRequired("description", "string")
 	}
 	return nil
+}
+
+func (req *UpdateProductRequest) Validate() error {
+	if req.Name != "" || req.Company != "" || req.Location != "" || req.Price <= 0 || req.Description != "" {
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provided")
 }
